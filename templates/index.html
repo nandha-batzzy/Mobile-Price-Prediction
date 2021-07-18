@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link rel="stylesheet" type = "text/css" href="{{ url_for('static',filename = 'style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Moblie Price Prediction</h1>
+	
+ </div>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<p> Enter your Message Here </p>
+    	<input type="battery_power" name="battery_power" placeholder="battery power (1998-501)" required="required" />
+        <input type="int_memory" name="int_memory" placeholder="internal memory (64-2)" required="required" />
+		<input type="mobile_wt" name="mobile_wt" placeholder="mobile_wt (200-80)" required="required" />
+		<input type="px_height" name="px_height" placeholder="Pixle Height (1960-0)" required="required" />
+		<input type="px_width" name="px_width" placeholder="Pixle Width (1998-500)" required="required" />
+		<input type="ram" name="ram" placeholder="ram (3998-256)" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
